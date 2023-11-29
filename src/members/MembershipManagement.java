@@ -42,4 +42,69 @@ public class MembershipManagement {
 
         return choice = getIntInput();
     }
+
+    public String addMembers(LinkedList<Member> m) {
+        String name;
+        int club;
+        String mem;
+        double fees;
+        int memberID;
+        Member mbr;
+        Calculator<Integer> cal;
+
+        System.out.println("Please, enter name: ");
+        name = reader.nextLine();
+
+        printClubOptions();
+        System.out.println("Please, enter ID club: ");
+        club = getIntInput();
+        while (club < 1 || club > 4) {
+            System.out.println("ID NOT FOUND!");
+            System.out.println("Please, enter ID club: ");
+            club = getIntInput();
+        }
+
+        if (m.size() > 0)
+            memberID = m.getLast().getMemberID() + 1;
+        else
+            memberID = 1;
+
+        if (club != 4) {
+            cal = (n) -> {
+                switch (n) {
+                    case 1:
+                        return 900;
+                    case 2:
+                        return 950;
+                    case 3:
+                        return 1000;
+                    default:
+                        return -1;
+                }
+            };
+            fees = cal.calculateFees(club);
+            mbr = new SingleClubMember('S', memberID, name, fees, club);
+            m.add(mbr);
+            mem = mbr.toString();
+            System.out.println("/nSTATUS: Single club member added/n");
+        }
+        else {
+            cal = (n) -> {
+                switch (n) {
+                    case 4:
+                        return 1200;
+                    default:
+                        return -1;
+                }
+            };
+            fees = cal.calculateFees(club);
+            mbr = new MultiClubMember('M', memberID, name, fees, 100);
+            m.add(mbr);
+            mem = mbr.toString();
+            System.out.println("/nSTATUS: Multi club member added/n");
+        }
+        return mem;
+    }
+
+
 }
