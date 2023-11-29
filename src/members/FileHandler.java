@@ -43,5 +43,26 @@ public class FileHandler {
         }
     }
 
+    public void overwriteFile (LinkedList<Member> m) {
+        String s;
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("members.temp", false))) {
+            for (int i = 0; i < m.size(); i++) {
+                s = m.get(i).toString();
+                writer.write(s + "/n");
+            }
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
 
+        try {
+            File f = new File("members.csv");
+            File tf = new File("members.temp");
+            boolean deleteMem = f.delete();
+            boolean renameMem = tf.renameTo(f);
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
