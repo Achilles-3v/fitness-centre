@@ -34,5 +34,14 @@ public class FileHandler {
         return m;
     }
 
+    public void appendFile(String mem) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("members.csv", true))) {
+            writer.write(mem + "/n");
+        }
+        catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 
 }
