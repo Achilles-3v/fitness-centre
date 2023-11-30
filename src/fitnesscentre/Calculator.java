@@ -1,4 +1,4 @@
-package members;
+package fitnesscentre;
 
 @FunctionalInterface
 public interface Calculator <T extends Number> {

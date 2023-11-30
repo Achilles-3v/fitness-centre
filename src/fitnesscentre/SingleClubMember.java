@@ -1,4 +1,4 @@
-package members;
+package fitnesscentre;
 
 public class SingleClubMember extends Member {
     private int club;

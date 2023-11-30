@@ -1,4 +1,4 @@
-package members;
+package fitnesscentre;
 
 public class Member {
     private char memberType;

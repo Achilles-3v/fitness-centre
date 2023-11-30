@@ -1,4 +1,4 @@
-package members;
+package fitnesscentre;
 import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class MembershipManagement {
             }
             catch (InputMismatchException e) {
                 reader.nextLine();
-                System.out.println("/nERROR: INVALID INPUT. Please try again: ");
+                System.out.print("\nERROR: INVALID INPUT. Please try again: ");
             }
         }
         return choice;
@@ -33,7 +33,7 @@ public class MembershipManagement {
     public int getChoice() {
         int choice;
 
-        System.out.println("WELCOME TO OZONE FITNESS CENTER");
+        System.out.println("\nWELCOME TO OZONE FITNESS CENTER");
         System.out.println("===============================");
         System.out.println("1) Add Member");
         System.out.println("2) Remove Member");
@@ -52,15 +52,15 @@ public class MembershipManagement {
         Member mbr;
         Calculator<Integer> cal;
 
-        System.out.println("Please, enter name: ");
+        System.out.print("Please, enter name: ");
         name = reader.nextLine();
 
         printClubOptions();
-        System.out.println("Please, enter ID club: ");
+        System.out.print("Please, enter ID club: ");
         club = getIntInput();
         while (club < 1 || club > 4) {
             System.out.println("ID NOT FOUND!");
-            System.out.println("Please, enter ID club: ");
+            System.out.print("Please, enter ID club: ");
             club = getIntInput();
         }
 
@@ -86,7 +86,7 @@ public class MembershipManagement {
             mbr = new SingleClubMember('S', memberID, name, fees, club);
             m.add(mbr);
             mem = mbr.toString();
-            System.out.println("/nSTATUS: Single club member added/n");
+            System.out.println("\nSTATUS: Single club member added\n");
         }
         else {
             cal = (n) -> {
@@ -101,7 +101,7 @@ public class MembershipManagement {
             mbr = new MultiClubMember('M', memberID, name, fees, 100);
             m.add(mbr);
             mem = mbr.toString();
-            System.out.println("/nSTATUS: Multi club member added/n");
+            System.out.println("\nSTATUS: Multi club member added\n");
         }
         return mem;
     }
@@ -113,22 +113,22 @@ public class MembershipManagement {
         for (int i = 0; i < m.size(); i++) {
             if (m.get(i).getMemberID() == memberID) {
                 m.remove(i);
-                System.out.println("/nThis member removed/n");
+                System.out.println("\nThis member removed\n");
                 return;
             }
         }
 
-        System.out.println("/nMember with ID " + memberID + " not found!/n");
+        System.out.println("\nMember with ID " + memberID + " not found!\n");
     }
 
     public void printMemberInfo(LinkedList<Member> m) {
         int memberID;
-        System.out.println("Please, enter member ID to display information: ");
+        System.out.print("Please, enter member ID to display information: ");
         memberID = getIntInput();
         for (int i = 0; i < m.size(); i++) {
             if (m.get(i).getMemberID() == memberID) {
                 String[] memberInfo = m.get(i).toString().split(", ");
-                System.out.println("/n/nMember Type: " + memberInfo[0]);
+                System.out.println("\nMember Type: " + memberInfo[0]);
                 System.out.println("Member ID: " + memberInfo[1]);
                 System.out.println("Member Name: " + memberInfo[2]);
                 System.out.println("Member Fees: " + memberInfo[3]);
@@ -140,6 +140,6 @@ public class MembershipManagement {
                 return;
             }
         }
-        System.out.println("/nMember ID not found!/n");
+        System.out.println("\nMember ID not found!\n");
     }
 }

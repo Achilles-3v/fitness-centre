@@ -1,4 +1,4 @@
-package members;
+package fitnesscentre;
 import java.util.LinkedList;
 import java.io.*;
 
@@ -36,7 +36,7 @@ public class FileHandler {
 
     public void appendFile(String mem) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("members.csv", true))) {
-            writer.write(mem + "/n");
+            writer.write(mem + "\n");
         }
         catch (IOException e) {
             System.out.println(e.getMessage());
@@ -48,7 +48,7 @@ public class FileHandler {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("members.temp", false))) {
             for (int i = 0; i < m.size(); i++) {
                 s = m.get(i).toString();
-                writer.write(s + "/n");
+                writer.write(s + "\n");
             }
         }
         catch (IOException e) {
