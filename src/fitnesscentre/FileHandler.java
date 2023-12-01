@@ -13,7 +13,7 @@ public class FileHandler {
         try (BufferedReader reader = new BufferedReader(new FileReader("members.csv"))) {
             lineRead = reader.readLine();
             while (lineRead != null) {
-                splitLine = lineRead.split(",");
+                splitLine = lineRead.split(", ");
                 if (splitLine[0].equals("S")){
                     mem = new SingleClubMember('S', Integer.parseInt(splitLine[1]), splitLine[2],
                             Double.parseDouble(splitLine[3]), Integer.parseInt(splitLine[4]));

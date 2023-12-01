@@ -27,7 +27,7 @@ public class FitnessCentre {
                     break;
                 }
                 default: {
-                    System.out.println("\nCommand not found!\n\n");
+                    System.out.println("\nCommand not found!\n");
                     break;
                 }
             }
