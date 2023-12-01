@@ -26,6 +26,10 @@ public class FitnessCentre {
                     mm.printMemberInfo(members);
                     break;
                 }
+                case 4: {
+                    mm.printMembersList(members);
+                    break;
+                }
                 default: {
                     System.out.println("\nCommand not found!\n");
                     break;

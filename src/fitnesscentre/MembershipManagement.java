@@ -31,16 +31,15 @@ public class MembershipManagement {
     }
 
     public int getChoice() {
-        int choice;
-
         System.out.println("\nWELCOME TO OZONE FITNESS CENTER");
         System.out.println("===============================");
         System.out.println("1) Add Member");
         System.out.println("2) Remove Member");
         System.out.println("3) Display Member Information");
+        System.out.println("4) Display Members List");
         System.out.print("Please select an option (or Enter -1 to quit): ");
 
-        return choice = getIntInput();
+        return getIntInput();
     }
 
     public String addMembers(LinkedList<Member> m) {
@@ -141,5 +140,14 @@ public class MembershipManagement {
             }
         }
         System.out.println("\nMember ID not found!\n");
+    }
+
+    public void printMembersList(LinkedList<Member> m) {
+        System.out.println("\n   ID   Name");
+        System.out.println("-----------------------------");
+        for (int i = 0; i < m.size(); i++) {
+            String[] memberInfo = m.get(i).toString().split(", ");
+            System.out.printf("%s %3s: %s %n", memberInfo[0], memberInfo[1], memberInfo[2]);
+        }
     }
 }
